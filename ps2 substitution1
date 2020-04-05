@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<cs50.h>
+#include<string.h>
+#include <ctype.h>
+
+bool validate_key_length (string argv[1]);
+bool validate_key_alpha (string argv[1]);
+bool validate_letters_diff (string argv[1]);
+
+int main(int argc, string argv[])
+{
+    if (validate_key_length(argv[1]) = false)
+    {
+        printf("Key has to be 26 letters long");
+    }
+    else if (validate_key_alpha(argv[1]) = false)
+    {
+        printf("Key has to be alphabets");
+    }
+    else if (validate_letters_diff(argv[1]) = false)
+    {
+        printf("Letters repeated");
+    }
+    else
+    {
+        printf("valid");
+    }
+}
+
+// Check if key has 26 letters
+bool validate_key_length (string argv[1])
+{
+    if ( strlen(argv[]) == 26)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+// Check if all are alphabets
+bool validate_key_alpha (string argv[1])
+{
+    char letter[strlen(argv[])];
+    for (int i=0; i < strlen(argv[1]); i++)
+    {
+        letter[i] = argv[1][i];
+
+        if (isalpha(letter[i]) = true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+// Check if all letters are different
+bool validate_letters_diff (string argv[1])
+{
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        letter[i] = argv[1][i];
+
+        for (int j = 0; j < strlen(argv[1]); j++)
+        {
+             letter[j] = argv[1][j];
+
+             if ( letter[i] == letter[j])
+             {
+                 return true;
+             }
+             else
+             {
+                 return false;
+             }
+        }
+    }
+}
