@@ -3,21 +3,24 @@
 #include<string.h>
 #include <ctype.h>
 
-bool validate_key_length (string argv[1]);
-bool validate_key_alpha (string argv[1]);
-bool validate_letters_diff (string argv[1]);
+bool validate_key_length (string key);
+bool validate_key_alpha (string key);
+bool validate_letters_diff (string key);
 
 int main(int argc, string argv[])
 {
-    if (validate_key_length(argv[1]) = false)
+
+    string key = argv[1];
+
+    if (validate_key_length(key) == false)
     {
         printf("Key has to be 26 letters long");
     }
-    else if (validate_key_alpha(argv[1]) = false)
+    else if (validate_key_alpha(key) == false)
     {
         printf("Key has to be alphabets");
     }
-    else if (validate_letters_diff(argv[1]) = false)
+    else if (validate_letters_diff(key) == false)
     {
         printf("Letters repeated");
     }
@@ -28,9 +31,9 @@ int main(int argc, string argv[])
 }
 
 // Check if key has 26 letters
-bool validate_key_length (string argv[1])
+bool validate_key_length (string key)
 {
-    if ( strlen(argv[]) == 26)
+    if ( strlen(key) == 26)
     {
         return true;
     }
@@ -41,14 +44,15 @@ bool validate_key_length (string argv[1])
 }
 
 // Check if all are alphabets
-bool validate_key_alpha (string argv[1])
+bool validate_key_alpha (string key)
 {
-    char letter[strlen(argv[])];
-    for (int i=0; i < strlen(argv[1]); i++)
-    {
-        letter[i] = argv[1][i];
+    char letter[strlen(key)];
 
-        if (isalpha(letter[i]) = true)
+    for (int i=0; i < strlen(key); i++)
+    {
+        letter[i] = key[i];
+
+        if (isalpha(letter[i]) == true)
         {
             return true;
         }
@@ -60,15 +64,17 @@ bool validate_key_alpha (string argv[1])
 }
 
 // Check if all letters are different
-bool validate_letters_diff (string argv[1])
+bool validate_letters_diff (string key)
 {
-    for (int i = 0; i < strlen(argv[1]); i++)
-    {
-        letter[i] = argv[1][i];
+    char letter[strlen(key)];
 
-        for (int j = 0; j < strlen(argv[1]); j++)
+    for (int i = 0; i < strlen(key); i++)
+    {
+        letter[i] = key[i];
+
+        for (int j = 0; j < strlen(key); j++)
         {
-             letter[j] = argv[1][j];
+             letter[j] = key[j];
 
              if ( letter[i] == letter[j])
              {
